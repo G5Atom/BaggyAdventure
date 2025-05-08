@@ -27,7 +27,7 @@ public class PlayerControllerInput : MonoBehaviour
             return;
         }
 
-        else if (interactable.isInRange && Input.GetKeyDown(KeyCode.F))
+        else if (interactable.isInRange && Input.GetKeyDown(KeyCode.E))
         {
             canDestroy = true;
         }
