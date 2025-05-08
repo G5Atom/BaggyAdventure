@@ -1,16 +1,26 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool isInRange;
+    private PlayerControllerInput controller;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            isInRange = true;
+            controller.interactable = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            isInRange = false;
+            controller.interactable = null;
+        }
     }
 }
