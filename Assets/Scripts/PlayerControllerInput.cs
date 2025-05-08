@@ -4,7 +4,9 @@ public class PlayerControllerInput : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Vector2 moveInput = Vector2.zero;
-    public Interactable interactable;
+    public Interactable interactable = null;
+    public bool canDestroy;
+
     void Update()
     {
         Vector3 direction = new Vector3(moveInput.x, moveInput.y, 0f);
@@ -25,9 +27,9 @@ public class PlayerControllerInput : MonoBehaviour
             return;
         }
 
-        else if (interactable.isInRange && Input.GetKeyDown(KeyCode.E)) 
+        else if (interactable.isInRange && Input.GetKeyDown(KeyCode.F))
         {
-            Destroy(interactable.gameObject);
+            canDestroy = true;
         }
 
     }
