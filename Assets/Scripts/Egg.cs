@@ -13,7 +13,7 @@ public class Egg : MonoBehaviour
     }
     private void Update()
     {
-        if (eggFound == true) 
+        if (eggFound == true)
         {
             Debug.Log("Touched again");
             SceneManager.LoadScene(0);

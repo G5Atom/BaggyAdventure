@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leaves_001.unity
     guid: cb9f08e7c2a5fda4e950cba8d003217a
+  - enabled: 1
+    path: Assets/Scenes/Map2.unity
+    guid: 1537fceca86adba4b94705a6233dab99
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
