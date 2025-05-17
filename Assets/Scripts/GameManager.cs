@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         else 
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             MarkPersistentObjects();
         }
     }
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             if (obj != null) 
             {
-                DontDestroyOnLoad (obj);
+                //DontDestroyOnLoad (obj);
             }
         }
     }

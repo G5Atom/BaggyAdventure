@@ -1,26 +1,15 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class Egg : MonoBehaviour
+public class Egg : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private int sceneBuildIndex;
-    public bool eggFound;
 
-    private void Start()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        eggFound = false;
-    }
-    private void Update()
-    {
-        if (eggFound == true)
-        {
-            Debug.Log("Touched again");
-            SceneManager.LoadScene(0);
-        }
-    }
-    private void OnMouseDown()
-    {
-        eggFound = true;
+        Debug.Log("Touched again");
+        SceneManager.LoadScene(0);
     }
 }

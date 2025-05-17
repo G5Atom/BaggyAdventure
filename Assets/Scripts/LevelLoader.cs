@@ -3,8 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public int sceneBuildIndex;
-    private object other;
+    public bool enteredLeafPile;
+    private PlayerControllerInput controller;
+
+    private void Start()
+    {
+        controller = FindAnyObjectByType<PlayerControllerInput>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,8 +17,10 @@ public class LevelLoader : MonoBehaviour
 
         if(other.tag == "Player")
         {
-            print("Switching Scene to" + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            controller.levelLoader = this;
+          enteredLeafPile = true;            
         }
     }
+
+
 }

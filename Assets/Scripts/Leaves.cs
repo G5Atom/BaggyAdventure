@@ -1,27 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Leaves : MonoBehaviour
+public class Leaves : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
-    private bool dragging = false;
     private Vector3 offset;
 
-    void Update()
-    {
-        if (dragging) 
-        {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
-        }    
-    }
-
-    private void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        dragging = true; 
     }
 
-    private void OnMouseUp() 
+    public void OnDrag(PointerEventData eventData)
     {
-        dragging = false;
+        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
     }
 }
