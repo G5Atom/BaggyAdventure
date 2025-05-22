@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapLoader : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class MapLoader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("Trigger Entered")
+        print("Trigger Entered");
+
+        if (other.tag == "Player") 
+        {
+            print("Switching Scene to " + sceneBuildIndex);
+            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        }
     }
 }

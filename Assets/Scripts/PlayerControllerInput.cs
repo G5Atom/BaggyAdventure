@@ -10,6 +10,7 @@ public class PlayerControllerInput : MonoBehaviour
     public GameObject leafMiniGame;
     public LevelLoader levelLoader;
     public SpriteRenderer spriteRenderer;
+    public Death death;
 
     private void Start()
     {
@@ -17,9 +18,15 @@ public class PlayerControllerInput : MonoBehaviour
         animator.SetBool("Up", false);
         animator.SetBool("Down", false);
         animator.SetBool("Horizontal", false);
+        death = FindAnyObjectByType<Death>();
     }
     void Update()
     {
+        //if (death.isDead) 
+        //{
+         //   return;
+        //} 
+
         Vector3 direction = new Vector3(moveInput.x, moveInput.y, 0f);
 
         transform.position += direction * Time.deltaTime * moveSpeed;
