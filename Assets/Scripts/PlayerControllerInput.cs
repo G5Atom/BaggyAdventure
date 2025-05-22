@@ -7,14 +7,16 @@ public class PlayerControllerInput : MonoBehaviour
     [SerializeField] private Animator animator;
     public Interactable interactable = null;
     public bool canDestroy;
-    [SerializeField] private GameObject leafMiniGame;
+    public GameObject leafMiniGame;
     public LevelLoader levelLoader;
+    public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         animator.SetBool("Idle", true);
         animator.SetBool("Up", false);
         animator.SetBool("Down", false);
+        animator.SetBool("Horizontal", false);
     }
     void Update()
     {
@@ -34,25 +36,47 @@ public class PlayerControllerInput : MonoBehaviour
 
     private void BaggyAnims()
     {
+        if (moveInput.x > 0.1f) 
+        {
+            animator.SetBool("Up", false);
+            animator.SetBool("Down", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Horizontal", true);
 
-        if (moveInput.y > 0.1f)
+            spriteRenderer.flipX = true;
+        }
+
+        else if (moveInput.x < -0.1f) 
+        {
+            animator.SetBool("Up", false);
+            animator.SetBool("Down", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Horizontal", true);
+
+            spriteRenderer.flipX = false;
+        }
+
+        else if (moveInput.y > 0.1f)
         {
             animator.SetBool("Up", true);
             animator.SetBool("Down", false);
             animator.SetBool("Idle", false);
+            animator.SetBool("Horizontal", false);
 
         }
-        else if (moveInput.y < 0.1f)
+        else if (moveInput.y < -0.1f)
         {
             animator.SetBool("Up", false);
             animator.SetBool("Down", true);
             animator.SetBool("Idle", false);
+            animator.SetBool("Horizontal", false);
         }
-        else if (moveInput.y == 0)
+        else if (moveInput.y == 0 && moveInput.x == 0)
         {
             animator.SetBool("Idle", true);
             animator.SetBool("Up", false);
             animator.SetBool("Down", false);
+            animator.SetBool("Horizontal", false);
         }
 
     }
@@ -81,6 +105,7 @@ public class PlayerControllerInput : MonoBehaviour
         if (levelLoader.enteredLeafPile)
         {
             leafMiniGame.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 

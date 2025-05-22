@@ -6,10 +6,22 @@ public class Egg : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private int sceneBuildIndex;
+    [SerializeField]
+    private GameObject miniGame;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject leafPile;
+    [SerializeField]
+    private PlayerControllerInput playerControllerInput;
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Touched again");
-        SceneManager.LoadScene(0);
+        playerControllerInput. levelLoader = null;
+        player.SetActive(true);
+        leafPile.SetActive(false);
+        miniGame.SetActive(false);
+
     }
 }
