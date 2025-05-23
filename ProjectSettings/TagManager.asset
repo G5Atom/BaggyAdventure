@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Fox
+  - Egg
   layers:
   - Default
   - TransparentFX

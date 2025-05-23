@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     [SerializeField]
     private PlayerControllerInput controller;
+    public TMP_Text counterText;
 
     private void Start()
     {
@@ -34,6 +36,11 @@ public class Interactable : MonoBehaviour
             isInRange = false;
             controller.interactable = null;
         }
+
+        if (collision.CompareTag("Egg") && collision.gameObject.activeSelf) 
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void DestroyObject()
@@ -55,4 +62,5 @@ public class Interactable : MonoBehaviour
         Destroy(this.gameObject);
         }
     }
+
 }

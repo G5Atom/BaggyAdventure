@@ -11,9 +11,11 @@ public class PlayerControllerInput : MonoBehaviour
     public LevelLoader levelLoader;
     public SpriteRenderer spriteRenderer;
     public Death death;
+    public int eggCounter;
 
     private void Start()
     {
+        eggCounter = 0;
         animator.SetBool("Idle", true);
         animator.SetBool("Up", false);
         animator.SetBool("Down", false);
@@ -113,6 +115,7 @@ public class PlayerControllerInput : MonoBehaviour
         {
             leafMiniGame.SetActive(true);
             gameObject.SetActive(false);
+            eggCounter++;
         }
     }
 

@@ -44,8 +44,8 @@ public class AI : MonoBehaviour
 
     private void FaceMovementDirection() 
     {
-        bool shouldFlipX = transform.position.x < previousXPosition;
-        sprite.flipX = shouldFlipX;
-        previousXPosition = transform.position.x;
+        bool shouldFlipX = transform.position.x > previousXPosition;
+        sprite.flipX = shouldFlipX;     
+       previousXPosition = transform.position.x;
     }
 }
